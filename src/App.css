@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+html {
+  font-size: 62.5%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #f7d695;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 3.8rem;
+  margin: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  margin: 0;
+}
+ul {
   display: flex;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  background-color: #774898;
+  color: #fffde1;
+  font-size: 1.8rem;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin: 6px;
+}
+li:nth-child(1) {
+  background-color: #774898;
+}
+li:nth-child(2) {
+  background-color: #00a8b5;
+}
+li:nth-child(3) {
+  background-color: #de4383;
+}
+li:nth-child(4) {
+  background-color: #f3ae4b;
+}
+.bg-color-blue {
+  background-color: #00a8b5;
+}
+.bg-color-pink {
+  background-color: #de4383;
+}
+.bg-color-yellow {
+  background-color: #f3ae4b;
+}
+.bg-color-purple {
+  background-color: #774898;
+}
+.ball {
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+}
+.box {
+  border-radius: 6px;
+  height: 72px;
+  width: 72px;
+}
+main {
+  padding: 12px 24px;
+}
+header {
+  display: inline-block;
+  transform: translate(16px, 14px);
+}
+header p {
+  background-color: #f3ae4b;
+  border-radius: 24px;
+  color: #21243d;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+article {
+  background-color: #21243d;
+  border-radius: 12px;
   align-items: center;
+  display: flex;
+  padding-right: 24px;
+}
+section {
+  background-color: #fffde1;
+  border-radius: 12px 0 0 12px;
+  flex: 1 1 100%;
+  margin-right: 24px;
+  padding: 36px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+section > * {
+  color: #00a8b5;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  flex: 1 1 148px;
+}
+footer button,
+footer .pill {
+  border: none;
+  border-radius: 8px;
+  color: #f7d695;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  width: 100%;
+  text-transform: uppercase;
 }

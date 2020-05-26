@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import OnLoadSequence from './pages/onload-sequence.js';
+import ToggleSequence from './pages/toggle-sequence.js';
+import NumberCount from './pages/number-count.js';
+import ScriptedSequence from './pages/scripted-sequence.js';
+import ChainedSequence from './pages/chained-sequence.js';
+import Trails from './pages/trails-sequence.js';
+
+import './modern-normalize.css';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <OnLoadSequence />
+            <ToggleSequence />
+            <NumberCount />
+            <ScriptedSequence />
+            <ChainedSequence />
+            <Trails />
+        </>
+    );
 }
 
 export default App;
