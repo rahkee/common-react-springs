@@ -40,7 +40,10 @@ const ChainedSequence = () => {
                 </section>
 
                 <footer>
-                    <span className="pill">Chained</span>
+                    <div className="pill">
+                        <strong>Chained</strong>
+                        <span>Code Example</span>
+                    </div>
                 </footer>
             </article>
         </main>

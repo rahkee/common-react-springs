@@ -42,7 +42,10 @@ const ScriptedSequence = () => {
                 </section>
 
                 <footer>
-                    <span className="pill">Scripted</span>
+                    <div className="pill">
+                        <strong>Scripted</strong>
+                        <span>Code Example</span>
+                    </div>
                 </footer>
             </article>
         </main>

@@ -15,9 +15,9 @@ function App() {
             <OnLoadSequence />
             <ToggleSequence />
             <NumberCount />
+            <Trails />
             <ScriptedSequence />
             <ChainedSequence />
-            <Trails />
         </>
     );
 }
