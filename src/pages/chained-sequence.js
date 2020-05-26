@@ -3,26 +3,34 @@ import { useSpring, animated } from 'react-spring';
 
 const ChainedSequence = () => {
     const animProp_chainedSequence = useSpring({
-        from: { backgroundColor: '#774898', transform: `translateX(-150px)` },
+        from: {
+            backgroundColor: '#774898',
+            borderRadius: '5px',
+            transform: `translateX(-150px)`,
+        },
         to: [
             {
                 backgroundColor: '#00a8b5',
+                borderRadius: '10px',
                 transform: `translateX(-50px)`,
             },
             {
                 backgroundColor: '#de4383',
+                borderRadius: '20px',
                 transform: `translateX(50px)`,
             },
             {
                 backgroundColor: '#f3ae4b',
+                borderRadius: '40px',
                 transform: `translateX(150px)`,
             },
             {
                 backgroundColor: '#774898',
+                borderRadius: '5px',
                 transform: `translateX(-150px)`,
             },
         ],
-        config: { mass: 10, tension: 500, friction: 75 },
+        config: { mass: 1, tension: 500, friction: 50 },
     });
 
     return (
