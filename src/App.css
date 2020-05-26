@@ -96,16 +96,20 @@ section > * {
   color: #00a8b5;
 }
 footer {
+  display: flex;
   flex: 1 1 148px;
+  justify-content: center;
 }
 footer button,
 footer .pill {
   border: none;
   border-radius: 8px;
   color: #f7d695;
+  flex: 1 1 auto;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
-  padding: 12px 24px;
-  width: 100%;
+  align-items: center;
+  padding: 12px;
   text-transform: uppercase;
 }
