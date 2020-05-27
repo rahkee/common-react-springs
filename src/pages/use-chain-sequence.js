@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSpring, animated, config } from 'react-spring';
+import React, { useState, useRef } from 'react';
+import { useSpring, useChain, animated, config } from 'react-spring';
 
 const UseChainSequence = () => {
     const [toggle, setToggle] = useState(false);
@@ -9,45 +9,40 @@ const UseChainSequence = () => {
         config: config.gentle,
     });
 
-    const animProp_chainedSpring = useSpring({
-        from: {
-            backgroundColor: '#774898',
-            transform: `translateX(-150px)  rotate(0deg)`,
-        },
-        to: [
-            {
-                backgroundColor: '#00a8b5',
-                transform: `translateX(-50px) rotate(360deg)`,
-            },
-            {
-                backgroundColor: '#de4383',
-                transform: `translateX(50px) rotate(720deg)`,
-            },
-            {
-                backgroundColor: '#f3ae4b',
-                transform: `translateX(150px) rotate(1080deg)`,
-            },
-            {
-                backgroundColor: '#774898',
-                transform: `translateX(-150px) rotate(0deg)`,
-            },
-        ],
-        config: { mass: 20, tension: 500, friction: 150 },
+    const containerRef = useRef();
+    const animProp_container = useSpring({
+        from: { transform: `scale(0.8, 0.8)` },
+        to: { transform: `scale(${toggle ? '1, 1' : '0.8, 0.8'})` },
+        ref: containerRef,
     });
+
+    const textRef = useRef();
+    const animProp_text = useSpring({
+        from: { color: '#de4383' },
+        to: {
+            color: !toggle ? '#de4383' : '#774898',
+        },
+        ref: textRef,
+    });
+
+    useChain(toggle ? [containerRef, textRef] : [textRef, containerRef]);
 
     return (
         <main>
             <header>
-                <p>useChain Sequence</p>
+                <p>Chained Sequence</p>
+                <code>useChain</code>
             </header>
 
             <article>
                 <section>
                     <animated.div
-                        style={animProp_chainedSpring}
-                        className="ball"
+                        style={animProp_container}
+                        onClick={() => {
+                            setToggle(!toggle);
+                        }}
                     >
-                        <div className="ball-hole"></div>
+                        <animated.h1 style={animProp_text}>Hi!</animated.h1>
                     </animated.div>
                 </section>
 
@@ -58,7 +53,7 @@ const UseChainSequence = () => {
                             setToggle(!toggle);
                         }}
                     >
-                        {toggle ? 'Roll' : 'Roll'}
+                        {toggle ? 'Stop' : 'Start'}
                     </animated.button>
                 </footer>
             </article>

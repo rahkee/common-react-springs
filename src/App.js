@@ -13,13 +13,13 @@ import './App.css';
 function App() {
     return (
         <>
+            <UseChainSequence />
             <OnLoadSpring />
             <ToggleSpring />
             <NumberCount />
             <Trails />
             <ScriptedSpring />
             <ChainedSpring />
-            <UseChainSequence />
         </>
     );
 }

@@ -24,7 +24,10 @@ const OnLoadVisibility = () => {
                 </section>
 
                 <footer>
-                    <span className="pill">On Load</span>
+                    <div className="pill">
+                        <strong>Scripted</strong>
+                        <span>Code Example</span>
+                    </div>
                 </footer>
             </article>
         </main>
