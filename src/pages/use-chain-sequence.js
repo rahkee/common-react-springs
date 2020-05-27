@@ -11,8 +11,11 @@ const UseChainSequence = () => {
 
     const containerRef = useRef();
     const animProp_container = useSpring({
-        from: { transform: `scale(0.8, 0.8)` },
-        to: { transform: `scale(${toggle ? '1, 1' : '0.8, 0.8'})` },
+        from: { opacity: 0, transform: `scale(0.8, 0.8)` },
+        to: {
+            opacity: toggle ? 1 : 0,
+            transform: `scale(${toggle ? '1, 1' : '0.8, 0.8'})`,
+        },
         ref: containerRef,
     });
 
@@ -21,6 +24,7 @@ const UseChainSequence = () => {
         from: { color: '#de4383' },
         to: {
             color: !toggle ? '#de4383' : '#774898',
+            transform: `scale(${toggle ? '1.4, 1.4' : '1, 1'})`,
         },
         ref: textRef,
     });
