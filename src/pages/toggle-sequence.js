@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 
-const ToggleSequence = () => {
+const ToggleSpring = () => {
     const [toggle, setToggle] = useState(false);
 
     const animProp_button = useSpring({
@@ -9,7 +9,7 @@ const ToggleSequence = () => {
         config: config.gentle,
     });
 
-    const animProp_toggleSequence = useSpring({
+    const animProp_toggleSpring = useSpring({
         backgroundColor: toggle ? `#de4383` : `#00a8b5`,
         transform: `translateX(${toggle ? '96px' : '-96px'})`,
         config: { mass: 1, tension: 500, friction: 50 },
@@ -18,13 +18,13 @@ const ToggleSequence = () => {
     return (
         <main>
             <header>
-                <p>Toggle Sequence</p>
+                <p>Toggle Spring</p>
             </header>
 
             <article>
                 <section>
                     <animated.div
-                        style={animProp_toggleSequence}
+                        style={animProp_toggleSpring}
                         className="ball"
                     ></animated.div>
                 </section>
@@ -44,4 +44,4 @@ const ToggleSequence = () => {
     );
 };
 
-export default ToggleSequence;
+export default ToggleSpring;

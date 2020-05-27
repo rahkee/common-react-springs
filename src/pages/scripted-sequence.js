@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
-const ScriptedSequence = () => {
-    const animProp_scriptedSequence = useSpring({
+const ScriptedSpring = () => {
+    const animProp_scriptedSpring = useSpring({
         from: { backgroundColor: '#774898', transform: `translateX(-150px)` },
         to: async (next) => {
             while (true) {
@@ -30,13 +30,13 @@ const ScriptedSequence = () => {
     return (
         <main>
             <header>
-                <p>Scripted Sequence</p>
+                <p>Scripted Spring</p>
             </header>
 
             <article>
                 <section>
                     <animated.div
-                        style={animProp_scriptedSequence}
+                        style={animProp_scriptedSpring}
                         className="box"
                     ></animated.div>
                 </section>
@@ -52,4 +52,4 @@ const ScriptedSequence = () => {
     );
 };
 
-export default ScriptedSequence;
+export default ScriptedSpring;

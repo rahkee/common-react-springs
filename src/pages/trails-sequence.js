@@ -11,10 +11,16 @@ const Trails = () => {
         config: config.gentle,
     });
 
-    const animProp_onLoadSequence = useTrail(arrayOfWords.length, {
+    const animProp_onLoadSpring = useTrail(arrayOfWords.length, {
         opacity: triggerAnimation ? 1 : 0,
-        transform: `translateX(${triggerAnimation ? '0px' : '-24px'}) `,
-        config: { mass: 1, tension: 500, friction: 28 },
+        transform: `scale(${
+            triggerAnimation ? '1, 1' : '0.8, 0.8'
+        }) translateX(${triggerAnimation ? '0px' : '-24px'})`,
+        config: {
+            mass: 1,
+            tension: 500,
+            friction: `${triggerAnimation ? '25' : '30'}`,
+        },
     });
 
     return (
@@ -26,7 +32,7 @@ const Trails = () => {
             <article>
                 <section>
                     <ul>
-                        {animProp_onLoadSequence.map((prop, index) => {
+                        {animProp_onLoadSpring.map((prop, index) => {
                             return (
                                 <animated.li style={prop} key={index}>
                                     {arrayOfWords[index]}

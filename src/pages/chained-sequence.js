@@ -1,61 +1,69 @@
-import React from 'react';
-import { useSpring, animated } from 'react-spring';
+import React, { useState } from 'react';
+import { useSpring, animated, config } from 'react-spring';
 
-const ChainedSequence = () => {
-    const animProp_chainedSequence = useSpring({
+const ChainedSpring = () => {
+    const [toggle, setToggle] = useState(false);
+
+    const animProp_button = useSpring({
+        backgroundColor: toggle ? '#de4383' : '#774898',
+        config: config.gentle,
+    });
+
+    const animProp_chainedSpring = useSpring({
         from: {
             backgroundColor: '#774898',
-            borderRadius: '5px',
-            transform: `translateX(-150px)`,
+            transform: `translateX(-150px)  rotate(0deg)`,
         },
         to: [
             {
                 backgroundColor: '#00a8b5',
-                borderRadius: '10px',
-                transform: `translateX(-50px)`,
+                transform: `translateX(-50px) rotate(360deg)`,
             },
             {
                 backgroundColor: '#de4383',
-                borderRadius: '20px',
-                transform: `translateX(50px)`,
+                transform: `translateX(50px) rotate(720deg)`,
             },
             {
                 backgroundColor: '#f3ae4b',
-                borderRadius: '40px',
-                transform: `translateX(150px)`,
+                transform: `translateX(150px) rotate(1080deg)`,
             },
             {
                 backgroundColor: '#774898',
-                borderRadius: '5px',
-                transform: `translateX(-150px)`,
+                transform: `translateX(-150px) rotate(0deg)`,
             },
         ],
-        config: { mass: 1, tension: 500, friction: 50 },
+        config: { mass: 20, tension: 500, friction: 150 },
     });
 
     return (
         <main>
             <header>
-                <p>Chained Sequence</p>
+                <p>Chained Spring</p>
             </header>
 
             <article>
                 <section>
                     <animated.div
-                        style={animProp_chainedSequence}
-                        className="box"
-                    ></animated.div>
+                        style={animProp_chainedSpring}
+                        className="ball"
+                    >
+                        <div className="ball-hole"></div>
+                    </animated.div>
                 </section>
 
                 <footer>
-                    <div className="pill">
-                        <strong>Chained</strong>
-                        <span>Code Example</span>
-                    </div>
+                    <animated.button
+                        style={animProp_button}
+                        onClick={() => {
+                            setToggle(!toggle);
+                        }}
+                    >
+                        {toggle ? 'Roll' : 'Roll'}
+                    </animated.button>
                 </footer>
             </article>
         </main>
     );
 };
 
-export default ChainedSequence;
+export default ChainedSpring;

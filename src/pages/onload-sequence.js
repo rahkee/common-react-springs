@@ -2,7 +2,7 @@ import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
 const OnLoadVisibility = () => {
-    const animProp_onLoadSequence = useSpring({
+    const animProp_onLoadSpring = useSpring({
         from: { opacity: 0, transform: `translateY(-24px)` },
         opacity: 1,
         transform: `translateY(0)`,
@@ -13,12 +13,12 @@ const OnLoadVisibility = () => {
     return (
         <main>
             <header>
-                <p>On Load Sequence</p>
+                <p>On Load Spring</p>
             </header>
 
             <article>
                 <section>
-                    <animated.div style={animProp_onLoadSequence}>
+                    <animated.div style={animProp_onLoadSpring}>
                         <h1>Hello World!</h1>
                     </animated.div>
                 </section>
